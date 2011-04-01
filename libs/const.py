@@ -61,12 +61,12 @@ MSG = {
 	MSG_WAITING : 		u'...ожидание...',
 	MSG_FALSESTART : 	u'Фальстарт\nСтол №%d',
 	MSG_PRESSED : 		u'Нажата кнопка\nСтол №%d',
-	MSG_START20 : 		u'Старт 20',
-	MSG_START60 : 		u'Старт 60',
-	MSG_RESET : 		u'Сброс',
+	MSG_START20 : 		u'Старт 20 (c)',
+	MSG_START60 : 		u'Старт 60 (x)',
+	MSG_RESET : 		u'Сброс (z)',
 	MSG_TIMER : 		u'Таймер',
 	MSG_TIMEOUT : 		u'Время вышло',
-	MSG_STARTED : 		u'Время идет',
+	MSG_STARTED : 		u'Время идет (%d)',
 }
 
 DBRAIN_TIMER_EVENT = 30

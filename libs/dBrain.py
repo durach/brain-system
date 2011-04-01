@@ -26,6 +26,9 @@ class dBrain(pqApp):
 		for agent in self.agent_list:
 			agent.register_events()
 
+		#KeyBoard
+		self.init_keyboard()
+		
 		#Sounds
 		self.init_sounds()
 		
@@ -58,6 +61,11 @@ class dBrain(pqApp):
 		self.snd_10sec		= pygame.mixer.Sound(SOUND_10SEC)
 		self.snd_timeout	= pygame.mixer.Sound(SOUND_TIMEOUT)
 
+	def init_keyboard(self):
+		self.bind((KEYDOWN, K_z), self.do_reset)
+		self.bind((KEYDOWN, K_x), self.do_start60)
+		self.bind((KEYDOWN, K_c), self.do_start20)
+
 	def do_reset(self, e):
 		self.lb_status.style[BG_COLOR] = COLOR_GREEN
 		self.lb_status.settext(MSG[MSG_WAITING])
@@ -77,15 +85,6 @@ class dBrain(pqApp):
 
 	def do_start20(self, e):
 		if (self.system_status == STATUS_WAITING):
-			self.lb_status.style[BG_COLOR] = COLOR_GREEN
-			self.lb_status.settext(MSG[MSG_WAITING])
-			self.reset_timer()
-			self.system_status = STATUS_WAITING
-			self.snd_10sec_played = False
-			self.all_lamps_off()
-
-
-
 			self.timer_target_value 	= 20
 			self.timestamp_start_value	= time.time()
 			self.system_status = STATUS_STARTED
@@ -95,7 +94,7 @@ class dBrain(pqApp):
 
 	def start_timer(self):
 		pygame.time.set_timer(DBRAIN_TIMER_EVENT, 5)
-		self.lb_status.settext(MSG[MSG_STARTED])
+		self.lb_status.settext(MSG[MSG_STARTED] % self.timer_target_value)
 
 	def stop_timer(self):
 		pygame.time.set_timer(DBRAIN_TIMER_EVENT, 0)
