@@ -1,0 +1,7 @@
+[patterns]
+**.php = LF
+**.html = LF
+**.js = LF
+**.css = LF
+**.sh = LF
+**.py = LF
