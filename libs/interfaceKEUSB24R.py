@@ -18,20 +18,20 @@ class interfaceKEUSB24R():
 		self.scan()
 
 	def scan(self):
-		for i in range(6, 20):
-			try:
-				self.port = serial.Serial(port = i, timeout = self.timeout)
-				print "Opened %d" % i
-				self.send_command('$KE')
-				answer = self.read_answer()
-				if answer == '#OK':
-					self.port_number = i
-					return True
-				else:
-					print "Can't open %d" % i
-					self.port.close()
-			except serial.SerialException:
-				pass
+		portname = '/dev/tty.usbmodemfa131';
+		try:
+			self.port = serial.Serial(portname, timeout = self.timeout)
+			print "Opened %s" % portname
+			self.send_command('$KE')
+			answer = self.read_answer()
+			if answer == '#OK':
+				self.port_number = portname
+				return True
+			else:
+				print "Can't open %s" % portname
+				self.port.close()
+		except serial.SerialException:
+			pass
 		return False
 	
 	def is_initialized(self):
