@@ -21,8 +21,8 @@ FONT_COURIER_BOLD	= os.path.join(DATA_DIR, 'courbd.ttf')
 #Sounds
 SOUND_START			= os.path.join(DATA_DIR, 'start.wav')
 SOUND_WIN			= os.path.join(DATA_DIR, 'table.wav')
-SOUND_FALSESTART	= os.path.join(DATA_DIR, 'falsestart-2.wav')
-#SOUND_FALSESTART	= os.path.join(DATA_DIR, 'table.wav')
+#SOUND_FALSESTART	= os.path.join(DATA_DIR, 'falsestart-2.wav')
+SOUND_FALSESTART	= os.path.join(DATA_DIR, 'table.wav')
 SOUND_10SEC			= os.path.join(DATA_DIR, '10seconds.wav')
 SOUND_TIMEOUT		= os.path.join(DATA_DIR, 'timeout.wav')
 

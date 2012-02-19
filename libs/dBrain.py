@@ -39,11 +39,11 @@ class dBrain(pqApp):
 		self.btn_reset = Button(self, ((20, 15),(140, 50)), MSG[MSG_RESET], self.do_reset, STYLE_BUTTON)
 		self.btn_reset.pack()
 
-		self.btn_start60 = Button(self, ((20, 80), (140, 50)), MSG[MSG_START60], self.do_start60, STYLE_BUTTON)
-		self.btn_start60.pack()
+		#self.btn_start60 = Button(self, ((20, 80), (140, 50)), MSG[MSG_START60], self.do_start60, STYLE_BUTTON)
+		#self.btn_start60.pack()
 
-		self.btn_start20 = Button(self, ((20, 145), (140, 50)), MSG[MSG_START20], self.do_start20, STYLE_BUTTON)
-		self.btn_start20.pack()
+		#self.btn_start20 = Button(self, ((20, 145), (140, 50)), MSG[MSG_START20], self.do_start20, STYLE_BUTTON)
+		#self.btn_start20.pack()
 
 		Box(self, ((185, 21), (220, 75)), MSG[MSG_TIMER], STYLE_TIMER_BOX).pack()
 		self.lb_timer_text = MidText(self, ((185, 21), (219, 74)), '', STYLE_TIMER_TEXT)
@@ -144,11 +144,11 @@ class dBrain(pqApp):
 			self.lb_timer_text.settext('%02d:%02d' % (seconds, milliseconds * 100))
 
 	def table_pressed(self, table_no):
-		if self.system_status == STATUS_STARTED:
-			self.process_win(table_no)
+		#if self.system_status == STATUS_STARTED:
+		#	self.process_win(table_no)
 
-		elif self.system_status == STATUS_WAITING:
-			self.process_falsestart(table_no)
+		if self.system_status == STATUS_WAITING:
+			self.process_win(table_no)
 			self.system_status = STATUS_STOPPED
 
 	def process_win(self, table_no):
